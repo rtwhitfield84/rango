@@ -29,7 +29,7 @@ def show_category(request, category_name_slug):
 		# Can we find a category name slug with the given name?
 		# If we can't, the .get() method raises a DoesNotExist exception.
 		# So the .get() method returns one model instance or raises an exception
-		category=Category.objects.get(slug=category_name_slug)
+		category = Category.objects.get(slug=category_name_slug)
 
 		# Retrieve all of the associated pages.
 		# Note that filter() will return a list of page objects or an empty list
@@ -39,7 +39,8 @@ def show_category(request, category_name_slug):
 		# the database to the context dictionary.
 		# We'll use this in the template to verify that the category exists
 
-		context_dict['pages'] = category
+		context_dict['pages'] = pages
+		context_dict['category'] = category
 
 	except Category.DoesNotExist:
 		context_dict['category'] = None
