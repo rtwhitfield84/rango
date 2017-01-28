@@ -1,4 +1,18 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	About
+{% endblock %}
+
+{% block body_block %}
+	<p> {{ aboutmessage }}</p>
+	<img src="{{ MEDIA_URL }}me.jpg" alt="me" width="200" height="200">
+	{% endblock %}
+
+
+
+<!-- <!DOCTYPE html>
 
 {% load staticfiles %}
 
@@ -13,7 +27,6 @@
 				alt="Picture of me" />
 			</div>
 		<div>
-			<a href="/rango/index/">Home</a><br />
 		</div>
 	</body>
-</html>
+</html> -->

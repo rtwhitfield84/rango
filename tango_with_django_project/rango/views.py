@@ -19,7 +19,7 @@ def index(request):
 
 
 def about(request):
-	about_dict = {'aboutmessage': "This tutorial has been put together by"}
+	about_dict = {'aboutmessage': "This tutorial has been put together by me"}
 	return render(request, 'rango/about.html', context=about_dict)
 
 
@@ -90,7 +90,7 @@ def add_page(request, category_name_slug):
 			return show_category(request, category_name_slug)
 	else:
 		print(form.errors)
-		
+
 	context_dict = {'form':form, 'category': category}
 	return render(request, 'rango/add_page.html', context_dict)
 
