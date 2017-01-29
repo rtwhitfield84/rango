@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from rango import views
+url(r'^restricted/', views.restricted, name='restricted'),
 
 
 
@@ -14,5 +15,6 @@ urlpatterns = [
 		views.register,
 		name='register'),
 	url(r'^login/$', views.user_login, name='login'),
+	url(r'^logout/$', views.user_logout, name='logout'),
 
 ]
