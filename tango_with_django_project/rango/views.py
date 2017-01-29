@@ -17,6 +17,7 @@ def index(request):
 	# Place the list in our context_dict dictionary
 	# that will be passed to the template engine.
 	
+	request.session.set_test_cookie()
 	category_list = Category.objects.order_by('-likes')[:5]
 	page_list = Page.objects.order_by('-views')[:5]
 	context_dict = {'categories': category_list, 'pages': page_list}
@@ -24,6 +25,10 @@ def index(request):
 
 
 def about(request):
+	if request.session.test_cookie_worked():
+		print("TEST COOKIE WORKED!")
+		request.session.delete_test_cookie()
+		
 	about_dict = {'aboutmessage': "This tutorial has been put together by me"}
 	return render(request, 'rango/about.html', context=about_dict)
 
